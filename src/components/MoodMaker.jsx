@@ -1,24 +1,21 @@
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 
 function MoodMaker() {
-  const [mood, setMood] = useState("");
+  const location = useLocation();
+  const autoMood = location.state?.mood;
+
+  const [mood, setMood] = useState(autoMood || "");
 
   return (
-    <div className="mood-maker">
-      <select onChange={(e) => setMood(e.target.value)}>
-        <option value="">Select mood</option>
-        <option value="happy">Happy</option>
-        <option value="sad">Sad</option>
-        <option value="calm">Calm</option>
-        <option value="energetic">Energetic</option>
-      </select>
-{mood && (
-  <img
-    src={`/moods/${mood}.jpg`}
-    onError={(e) => (e.target.src = `/moods/${mood}.png`)}
-    alt={mood}
-  />
-)}
+    <div>
+      {mood && (
+        <img
+          src={`/moods/${mood}.jpg`}
+          onError={(e) => (e.target.src = `/moods/${mood}.png`)}
+          alt={mood}
+        />
+      )}
     </div>
   );
 }
