@@ -1,9 +1,17 @@
-function SearchBar() {
+function SearchBar({ city, setCity, fetchWeather }) {
   return (
-    <div className="search-bar">
-      <p>SearchBar Component</p>
-    </div>
-  )
+    <form onSubmit={(e) =>{ e.preventDefault(); fetchWeather();
+
+    } }>
+      <input
+      value={city}
+      onChange={(e)=> setCity(e.target.value)}
+      placeholder="Enter city"
+      />
+      <button type ="submit">Search</button>
+  
+  </form>
+  );
 }
 
 export default SearchBar
