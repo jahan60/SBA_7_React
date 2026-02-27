@@ -1,6 +1,9 @@
+import { useNavigate } from "react-router-dom";
+
+
 function WeatherCard({ loading, error, weather }) {
   if(loading) return <p>Loading...</p>;
-  if(error) return <p className="error">{}error</p>
+  if(error) return <p className="error">{error}</p>
   if(!weather) return null;
 
   return (
