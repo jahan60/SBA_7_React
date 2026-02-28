@@ -17,10 +17,12 @@ function App() {
     dispatch({ type: actions.Fetch_Start });
 
     try {
-      const res = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=1cd70609b3fd50a6706cd9c9d5c78941&units=metric`
-      );
+      
 
+const res = await fetch(
+  `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=API_KEY
+&units=metric`
+);
       const data = await res.json();
 
       if (data.cod === 404) {
@@ -31,8 +33,7 @@ function App() {
       dispatch({ type: actions.Fetch_Success, payload: data });
       setCity("");
 
-      // navigate to mood page
-      //navigate("/mood", { state: { mood: "calm" } });
+      
 
     } catch (err) {
       dispatch({ type: actions.Fetch_Error, payload: "Network Error" });

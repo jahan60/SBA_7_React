@@ -14,6 +14,7 @@ function MoodMaker() {
           src={`/moods/${mood}.jpg`}
           onError={(e) => (e.target.src = `/moods/${mood}.png`)}
           alt={mood}
+          className="mood-img"
         />
       )}
     </div>
