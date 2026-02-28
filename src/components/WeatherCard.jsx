@@ -7,7 +7,7 @@ function WeatherCard({ loading, error, weather }) {
   if (error) return <p className="error">{error}</p>;
   if (!weather) return null;
 
-  // Example logic: choose a mood based on temperature
+  //choose a mood based on temperature
   let mood = "calm";
   if (weather.main.temp > 25) mood = "energetic";
   if (weather.main.temp < 10) mood = "sad";

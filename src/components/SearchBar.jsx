@@ -14,4 +14,4 @@ function SearchBar({ city, setCity, fetchWeather }) {
   );
 }
 
-export default SearchBar
+export default SearchBar;
